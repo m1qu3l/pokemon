@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/05f05be0e5.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        *{
+            color: #fff;
+        }
+        body{
+            background: rgba(16, 16, 16, 1);
+            color: #fff;
+        }
+        .carousel-item img{
+            height: 400px;
+        }
+        @media screen and (max-width: 770px) {
+            .carousel-item img{
+                height: 300px;
+            }
+        }
+        @media screen and (max-width: 540px) {
+            .carousel-item img{
+                height: 230px;
+            }
+        }
+        @media screen and (max-width: 540px) {
+            .carousel-item img{
+                height: 190px;
+            }
+        }
+        header{
+            text-align: center;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            z-index: 5;
+            position: sticky;
+            top: 0;
+            padding: .3em 0;
+            font-size: 2.5em;
+            margin-bottom: 1.5em;
+            background: rgba(0, 0, 0, .9);
+            text-shadow:  0 0 5px #ff5, 0 0 15px #ff5, 0 0 25px #ff5;
+        }
+        nav{
+            display: flex;
+            justify-content: space-between;
+            font-size:2em;
+            font-weight: 900;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        nav a{
+            font-size: 1.5em;
+            color: #ff5;
+            text-shadow:  0 0 5px #ff5, 0 0 15px #ff5, 0 0 25px #ff5;
+            text-decoration: none;
+        }
+        nav a:hover{
+            color: #f55;
+            text-shadow:  0 0 5px #f55, 0 0 15px #f55, 0 0 25px #f55;
+        }
+        .main .col{
+            margin: .7em .5em;
+        }
+        .card{
+            background: rgba(0, 0, 0, .9);
+            border: 4px solid #fff;
+            box-shadow: 0 0 5px #ff5,
+            0 0 15px #ff5,
+            inset 0 0 5px #ff5, inset 0 0 15px #ff5;
+        }
+        .card img::after{
+            content: '';
+            position: absolute;
+            width: 100%;
+            background: #fff;
+        }
+        .card:hover{
+            transition: transform .2s ease;
+            transform: scale(1.05) translateY(-10px);
+        }
+        .card-title{
+            color: #fff;
+            text-shadow: 0 0 5px #f55, 0 0 15px #f55, 0 0 25px #f55, 0 0 35px #f55;
+        }
+        .carousel-inner img{
+            border-radius: 10px;
+        }
+        .row{
+            margin-bottom: 2em;
+        }
+        table{
+            text-shadow:  0 0 5px #ff5, 0 0 15px #ff5, 0 0 25px #ff5;
+        }
+        #carga{
+            transform: scale(1);
+            position: fixed;
+            background: rgba(0, 0, 0, .5);
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.3em;
+            font-weight: 900;
+            letter-spacing: 5px;
+            text-shadow:  0 0 5px #ff5, 0 0 15px #ff5, 0 0 25px #ff5;
+        }
+        #u, #d, #t{
+            font-size:  2.5em;
+            text-shadow:  0 0 5px #ff5, 0 0 15px #ff5, 0 0 25px #ff5, 0 0 35px #ff5;
+        }
+        #u{
+            animation: papadiar1 1s infinite backwards steps(4);
+        }
+        #d{
+            animation: papadiar1 1.5s infinite backwards steps(2);
+        }#t{
+            animation: papadiar1 .7s infinite backwards steps(3);
+        }
+        @keyframes papadiar1 {
+            to{
+                color: #ddd;
+                text-shadow: none;
+            }
+        }
+        .cargacativo{
+            transform: scale(0) !important;
+        }
+        table tbody tr:hover{
+            transition: .2s ease;
+            transform: scale(1.01);
+        }
+        #next:hover{
+            transition: .2s ease;
+            transform: translateX(5px);
+        }
+        #prev:hover{
+            transition: .2s ease;
+            transform: translateX(-5px);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="carga">
+        <p>Cargando <i id="u">.</i><i id="d">.</i><i id="t">.</i></p>
+    </div>
+
+
+    <header>
+        <h1>POKÉMON</h1>
+    </header>
+    <div class="container">
+
+        <div class="row">
+            <div class="col">
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+                    <div class="carousel-indicators">
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <img src="https://studiosol-a.akamaihd.net/uploadfile/letras/fotos/6/c/f/e/6cfe7c143819d5edb18aa9c8e9d5da05.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item ">
+                            <img src="https://ichef.bbci.co.uk/news/640/cpsprodpb/5BC3/production/_90319432_poke5.png" class="d-block w-100">
+                        </div>
+                      <div class="carousel-item">
+                        <img src="https://gamersrd.com/wp-content/uploads/2017/09/GamersRD-13.jpg" class="d-block w-100" alt="...">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-2">
+                <nav></nav>
+            </div>
+        </div>
+        <div class="row main justify-content-center">
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-2">
+                <nav></nav>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Tipos de pokémones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Acero</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Agua</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Bicho</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">4</th>
+                            <td>Dragón</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">5</th>
+                            <td>Eléctrico</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">6</th>
+                            <td>Fantasma</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">7</th>
+                            <td>Fuego</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">8</th>
+                            <td>Hada</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">9</th>
+                            <td>Hielo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">10</th>
+                            <td>Lucha</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">11</th>
+                            <td>Normal</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">12</th>
+                            <td>Planta</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">13</th>
+                            <td>Psíquico</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">14</th>
+                            <td>Siniestro</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">15</th>
+                            <td>Tierra</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">16</th>
+                            <td>Veneno</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">17</th>
+                            <td>Volador</td>
+                        </tr>
+                        <tr>
+                          <td colspan="2">Aunque faltan muchos mas por descubir</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    
+<script src="di.js"></script>
+</body>
+</html>
